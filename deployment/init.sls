@@ -28,7 +28,7 @@ application directory is present:
       - group: {{ group }}
 
 virtualenv is installed:
-  - pkg.installed:
+  pkg.installed:
     - pkgs:
       - virtualenv
       - {{ runtime }}-virtualenv
