@@ -29,7 +29,7 @@ application directory is present:
 
 virtualenv is installed:
   - pkg.installed:
-    - names:
+    - pkgs:
       - virtualenv
       - {{ runtime }}-virtualenv
 
