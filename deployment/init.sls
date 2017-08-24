@@ -27,6 +27,12 @@ application directory is present:
       - user: {{ user }}
       - group: {{ group }}
 
+virtualenv is installed:
+  - pkg.installed:
+    - names:
+      - virtualenv
+      - {{ runtime }}-virtualenv
+
 deploy app code:
   git.latest:
     - name: {{ repository }}
@@ -47,7 +53,7 @@ deploy app runtime:
     - require:
       - git: deploy app code
       - pkg: virtualenv
-      - pkg: python3-virtualenv
+      - pkg: {{ runtime }}-virtualenv
 
 deploy app systemd unit:
   file.managed:
