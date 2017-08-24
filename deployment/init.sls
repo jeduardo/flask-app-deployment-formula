@@ -52,8 +52,7 @@ deploy app runtime:
     - requirements: {{ directory }}/code/requirements.txt
     - require:
       - git: deploy app code
-      - pkg: virtualenv
-      - pkg: {{ runtime }}-virtualenv
+      - pkg: virtualenv is installed
 
 deploy app systemd unit:
   file.managed:
