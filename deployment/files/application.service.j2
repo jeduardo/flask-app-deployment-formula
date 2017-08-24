@@ -1,0 +1,15 @@
+[Unit]
+Description={{ service }}
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile={{ directory }}/.env
+SyslogIdentifier={{ service }}
+User={{ user }}
+Group={{ group }}
+ExecStart={{ directory }}/runtime/bin/gunicorn ${APP_NAME} --bind ${APP_HOST}:${APP_PORT} -w ${APP_WORKERS}
+WorkingDirectory={{ directory }}/code
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
