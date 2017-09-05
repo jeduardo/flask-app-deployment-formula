@@ -62,7 +62,7 @@ deploy app systemd unit:
         directory: {{ directory }}
         user: {{ user }}
         group: {{ group }} 
-    - source: salt://application/files/application.service.j2
+    - source: salt://deployment/files/application.service.j2
     - template: jinja
     - require:
       - virtualenv: deploy app runtime
