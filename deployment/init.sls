@@ -13,7 +13,7 @@ git package is installed:
 application user is present:
   user.present:
     - name: {{ user }}
-    - homedir: {{ directory }}
+    - home: {{ directory }}
     - system: True
 
 application group is present:
