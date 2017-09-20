@@ -18,6 +18,7 @@ application user is present:
 application group is present:
   group.present:
     - name: {{ group }}
+    - system: True
 
 application directory is present:
   file.directory:
