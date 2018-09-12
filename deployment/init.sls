@@ -9,7 +9,7 @@ virtualenv is installed:
     - name: virtualenv
 
 {# Setting up and installing applications #}
-{%- for application, options in salt['pillar.get']('applications', {}) %}
+{%- for application, options in salt['pillar.get']('applications', {}).items() %}
 
 {%- set deploy = options.get('deploy', {}) %}
 {%- set config = options.get('config', {}) %}
