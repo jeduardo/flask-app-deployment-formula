@@ -1,27 +1,28 @@
-application:
-  deploy:
-    repository: https://github.com/jeduardo/flask-demo-app.git
-    branch: master
-    user: application
-    group: application
-    directory: /home/application
-    service: application
-    runtime: python3
-  # All the items under this section will be converted into a systemd environment
-  # file.
-  config:
-    name: 'app:app'
-    host: '0.0.0.0'
-    port: 5000
-    database_uri: postgres://user:password@mydatabaseserver/application_db
-    workers: {{ grains['num_cpus'] }}
-  # After the application is deployed, an event will be broadcast informing any
-  # service registries where the application is deployed and how to check it
-  # for availability.
-  check:
-    endpoint: '/api/v1/status'
-    tags:
-      - dev
-      - v1
-    interval: '10s'
+applications:
+  application:
+    deploy:
+      repository: https://github.com/jeduardo/flask-demo-app.git
+      branch: master
+      user: application
+      group: application
+      directory: /home/application
+      service: application
+      runtime: python3
+    # All the items under this section will be converted into a systemd environment
+    # file.
+    config:
+      name: 'app:app'
+      host: '0.0.0.0'
+      port: 5000
+      database_uri: postgres://user:password@mydatabaseserver/application_db
+      workers: {{ grains['num_cpus'] }}
+    # After the application is deployed, an event will be broadcast informing any
+    # service registries where the application is deployed and how to check it
+    # for availability.
+    check:
+      endpoint: '/api/v1/status'
+      tags:
+        - dev
+        - v1
+      interval: '10s'
 
